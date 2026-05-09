@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter · English Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <button class="hamburger" id="menuBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="logo" href="index.html">English Guide <span>· Exam Prep</span></a>
+  <div class="level-badge">C1 – C2</div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar">
+    <div class="sidebar-label">Chapters</div>
+    <ul class="chapter-list" id="chapterList"></ul>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span id="progressText">0 / 15</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="chapter-header">
+      <div class="ch-number-big" id="chNumBig">01</div>
+      <div class="ch-title-area">
+        <h2 id="chTitle">Loading...</h2>
+        <div class="subtitle" id="chSubtitle"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Overview</div>
+      <div class="content-box empty" id="chOverview"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Key Vocabulary</div>
+      <div class="content-box empty" id="chVocab" style="padding: 0.5rem 1.5rem;"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Grammar & Structure</div>
+      <div class="content-box empty" id="chGrammar"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Exam Tips</div>
+      <div id="chTips"></div>
+    </div>
+
+    <div class="chapter-nav">
+      <a class="nav-btn" id="prevBtn" href="#">← Previous</a>
+      <span class="chapter-indicator" id="chIndicator"></span>
+      <a class="nav-btn" id="nextBtn" href="#">Next →</a>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <span>English Exam Guide · C1–C2</span>
+  <div class="footer-authors">
+    <span>Aldo Cazares</span>
+    <span>·</span>
+    <span>Jesús Beltrán</span>
+    <span>·</span>
+    <span>Martín Miguel</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
