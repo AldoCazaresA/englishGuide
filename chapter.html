@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter · English Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+(function(){try{if(localStorage.getItem('english-guide-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+</head>
+<body>
+
+<header>
+  <button class="hamburger" id="menuBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="logo" href="index.html">English Guide <span>· Exam Prep</span></a>
+  <div class="header-actions">
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false" title="Dark mode">
+      <svg class="theme-toggle-icon theme-toggle-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="theme-toggle-icon theme-toggle-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button>
+    <div class="level-badge">C1 – C2</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar">
+    <div class="sidebar-label">Chapters</div>
+    <ul class="chapter-list" id="chapterList"></ul>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span id="progressText">0 / 15</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+    </div>
+  </aside>
+
+  <main>
+    <div class="chapter-header">
+      <div class="ch-number-big" id="chNumBig">01</div>
+      <div class="ch-title-area">
+        <h2 id="chTitle">Loading...</h2>
+        <div class="subtitle" id="chSubtitle"></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Overview</div>
+      <div class="content-box empty" id="chOverview"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Key Vocabulary</div>
+      <div class="content-box empty" id="chVocab" style="padding: 0.5rem 1.5rem;"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Grammar & Structure</div>
+      <div class="content-box empty" id="chGrammar"></div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">Exam Tips</div>
+      <div id="chTips"></div>
+    </div>
+
+    <p class="chapter-quiz-wrap"><a class="welcome-quiz-cta" id="chapterQuizLink" href="quiz.html">Practice vocabulary quiz for this chapter →</a></p>
+
+    <div class="chapter-nav">
+      <a class="nav-btn" id="prevBtn" href="#">← Previous</a>
+      <span class="chapter-indicator" id="chIndicator"></span>
+      <a class="nav-btn" id="nextBtn" href="#">Next →</a>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <span>English Exam Guide · C1–C2</span>
+  <div class="footer-authors">
+    <span>Aldo Cazares</span>
+    <span>·</span>
+    <span>Jesús Beltrán</span>
+    <span>·</span>
+    <span>Martín Miguel</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Quiz · English Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script>
+(function(){try{if(localStorage.getItem('english-guide-theme')==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();
+</script>
+</head>
+<body>
+
+<header>
+  <button class="hamburger" id="menuBtn" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <a class="logo" href="index.html">English Guide <span>· Exam Prep</span></a>
+  <div class="header-actions">
+    <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch to dark mode" aria-pressed="false" title="Dark mode">
+      <svg class="theme-toggle-icon theme-toggle-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      <svg class="theme-toggle-icon theme-toggle-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+    </button>
+    <div class="level-badge">C1 – C2</div>
+  </div>
+</header>
+
+<div class="layout">
+  <aside id="sidebar">
+    <div class="sidebar-label">Chapters</div>
+    <ul class="chapter-list" id="chapterList"></ul>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Progress</span>
+        <span id="progressText">0 / 15</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+    </div>
+  </aside>
+
+  <main id="quizMain">
+    <div class="chapter-header quiz-page-header">
+      <div class="ch-number-big" aria-hidden="true">?</div>
+      <div class="ch-title-area">
+        <h2>Practice Quiz</h2>
+        <div class="subtitle">Multiple-choice questions from chapter vocabulary</div>
+      </div>
+    </div>
+
+    <p class="quiz-back-wrap">
+      <a class="nav-btn quiz-back-home" href="index.html">← Back to home</a>
+    </p>
+
+    <div id="quizSetup" class="quiz-setup content-box">
+      <p class="quiz-setup-intro">Select one or more chapters and how many questions to generate. Questions use terms and definitions from <strong>Key Vocabulary</strong> in each chapter.</p>
+
+      <div class="section" style="margin-bottom: 1.5rem;">
+        <div class="section-title">Chapters</div>
+        <div class="quiz-chapter-toolbar">
+          <button type="button" class="nav-btn quiz-mini-btn" id="quizSelectAll">Select all</button>
+          <button type="button" class="nav-btn quiz-mini-btn" id="quizSelectNone">Clear</button>
+        </div>
+        <div class="quiz-chapter-grid" id="quizChapterChecks"></div>
+      </div>
+
+      <div class="quiz-row">
+        <label class="quiz-label" for="quizCount">Number of questions</label>
+        <select id="quizCount" class="quiz-select">
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+          <option value="75">75</option>
+        </select>
+      </div>
+
+      <div class="quiz-row">
+        <span class="quiz-label">Question style</span>
+        <div class="quiz-modes">
+          <label class="quiz-check-label"><input type="checkbox" id="quizModeTerm" checked> Term → pick definition</label>
+          <label class="quiz-check-label"><input type="checkbox" id="quizModeDef" checked> Definition → pick term</label>
+        </div>
+      </div>
+
+      <p class="quiz-error" id="quizError" hidden></p>
+      <button type="button" class="quiz-primary" id="quizGenerate">Generate quiz</button>
+    </div>
+
+    <div id="quizRun" class="quiz-run" hidden>
+      <div class="quiz-progress-meta">
+        <span id="quizQIndex">Question 1 of 10</span>
+        <span id="quizScoreLive" class="quiz-score-live"></span>
+      </div>
+      <div class="content-box quiz-question-box">
+        <p class="quiz-prompt" id="quizPrompt"></p>
+        <div class="quiz-options" id="quizOptions" role="group" aria-labelledby="quizPrompt"></div>
+      </div>
+      <div class="quiz-actions">
+        <button type="button" class="nav-btn" id="quizNext" disabled>Next question</button>
+      </div>
+    </div>
+
+    <div id="quizResults" class="quiz-results content-box" hidden>
+      <h3 class="quiz-results-title">Results</h3>
+      <p class="quiz-results-score" id="quizFinalScore"></p>
+      <div id="quizAnalysis" class="quiz-analysis" hidden></div>
+      <button type="button" class="quiz-primary" id="quizAgain">New quiz</button>
+    </div>
+  </main>
+</div>
+
+<footer>
+  <span>English Exam Guide · C1–C2</span>
+  <div class="footer-authors">
+    <span>Aldo Cazares</span>
+    <span>·</span>
+    <span>Jesús Beltrán</span>
+    <span>·</span>
+    <span>Martín Miguel</span>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
